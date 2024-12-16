@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Telegram WebApp</title>
+    <script type="module">
+      // Telegram WebAppga kirish
+      window.Telegram.WebApp.ready();
+
+      function sendDataToBot() {
+        const formData = {
+          nomi: document.getElementById("nomi").value,
+          viloyat: document.getElementById("viloyat").value,
+          tuman: document.getElementById("tuman").value,
+        };
+
+        // Ma'lumotlarni JSON formatida Telegram botga yuborish
+        Telegram.WebApp.sendData(JSON.stringify(formData));
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Ma'lumot yuborish</h2>
+    <label for="nomi">Nomi:</label><br />
+    <input type="text" id="nomi" /><br /><br />
+
+    <label for="viloyat">Viloyat:</label><br />
+    <input type="text" id="viloyat" /><br /><br />
+
+    <label for="tuman">Tuman:</label><br />
+    <input type="text" id="tuman" /><br /><br />
+
+    <button onclick="sendDataToBot()">Yuborish</button>
+  </body>
+</html>
